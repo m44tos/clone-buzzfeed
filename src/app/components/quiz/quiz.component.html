@@ -1,0 +1,25 @@
+<div class="quizContainer">
+    <div class="logoBuzz">
+        <img src="./assets/images/logo.png" alt="BuzzFeed">
+        <h1 class="textTitle">{{title}}</h1>
+    </div>
+
+    @if (!finished){
+        <div class="questions">
+            <h2 class="textQuestions">{{questSelected.question}}</h2>
+        </div>
+        <div class="options">
+            @for (option of questSelected.options; track $index) {
+                <button  class="btnOptions" (click)="btnPress(option.alias)">{{option.name}}</button>
+            }
+        </div>
+    }
+
+    @if (finished) {
+        <div class="result">
+            <h1 class="textResult">Resultado:</h1>
+            <p class="textResp">{{answerSelected}}</p>
+        </div>
+    }
+
+</div>
